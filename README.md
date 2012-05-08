@@ -6,6 +6,12 @@ It adds a global **TabUtils** object and extends Opera's **BrowserTab**,
 
 More in-depth documentation can be found in the **jsdoc** folder.
 
+## Bug-Fixes
+
+* **Opera 12.00 beta (build 1387)**: BrowserTabGroupManager.create() fails to 
+properly ungroup tabs that are already part of a group when adding them to the
+newly created group. The method is fixed to ungroup all tabs first.
+
 ## TabUtils
 
 	TabUtils.isTab(object)
@@ -56,7 +62,7 @@ Otherwise, gets the next tab or tab group in the window.
 Gets the tab immediately to the left of this tab.
 
 ### Methods
-	ungroup(before)
+	ungroup(before = false)
 Removes the tab from its current tab group. 
 If the tab is not part of a group, does nothing.
 
