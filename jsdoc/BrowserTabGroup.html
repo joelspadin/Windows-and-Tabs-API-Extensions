@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: BrowserTabGroup</title>
+    
+    <script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: BrowserTabGroup</h1>
+    
+    
+
+<section>
+    
+<header>
+    <h2>
+    BrowserTabGroup
+    </h2>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="BrowserTabGroup"><span class="type-signature"></span>new BrowserTabGroup</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 339</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="firstTab"><span class="type-signature"></span>firstTab<span class="type-signature"> :<a href="BrowserTab.html">BrowserTab</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Gets the leftmost tab in the group
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 240</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="lastTab"><span class="type-signature"></span>lastTab<span class="type-signature"> :<a href="BrowserTab.html">BrowserTab</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Gets the rightmost tab in the group
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 248</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="nextSibling"><span class="type-signature"></span>nextSibling<span class="type-signature"> :<a href="BrowserTab.html">BrowserTab</a>|<a href="BrowserTabGroup.html">BrowserTabGroup</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Gets the next tab or group within the window
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 224</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="previousSibling"><span class="type-signature"></span>previousSibling<span class="type-signature"> :<a href="BrowserTab.html">BrowserTab</a>|<a href="BrowserTabGroup.html">BrowserTabGroup</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Gets the previous tab or group within the window
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 232</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="at"><span class="type-signature"></span>at</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Gets the tab at a given position within the group
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The position of the tab to get</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 206</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The tab at the given position, if any
+</div>
+
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">BrowserTab</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="insertAfter"><span class="type-signature"></span>insertAfter</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Inserts a tab into the group after another tab
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tab</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="BrowserTab.html">BrowserTab</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The tab to insert</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="BrowserTab.html">BrowserTab</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The tab after which the specified tab should be inserted.
+	                    This tab is expected to be a child of the group.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 220</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="move"><span class="type-signature"></span>move</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Moves a tab to a new position within the group
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tab</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="BrowserTab.html">BrowserTab</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The tab to move</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>to</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The new position to move the item to</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 193</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The item which was moved, if any
+</div>
+
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">BrowserTab</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="move"><span class="type-signature"></span>move</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Moves a tab to a new position within the group
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>from</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The position of the tab to move</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>to</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The new position to move the tab to</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>api-extensions.js, line 193</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The tab which was moved, if any
+</div>
+
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">BrowserTab</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+</div>
+
+<nav>
+    <h3>Classes</h3><ul><li><a href="BrowserTab.html">BrowserTab</a></li><li><a href="BrowserTabGroup.html">BrowserTabGroup</a></li><li><a href="BrowserWindow.html">BrowserWindow</a></li></ul><h3>Namespaces</h3><ul><li><a href="window.TabUtils.html">TabUtils</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Tue May 08 2012 17:13:19 GMT-0500 (CDT)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>

@@ -1,3 +1,9 @@
+/**
+ * @project Windows and Tabs API Extensions
+ * @author Joel Spadin <joelspadin@gmail.com>
+ * @license See LICENSE file included in this distribution
+ */
+
 
 window.addEventListener('load', function() {
 	// cache a reference to opera.extension to speed things up a bit
@@ -7,9 +13,11 @@ window.addEventListener('load', function() {
 	if (!ext.tabGroups)
 		return;
 
-	var utils = window.TabUtils = {
-		/**
-		 * Gets whether messages can be posted to a tab
+	/** Utility methods for working with tabs, tab groups and windows
+	 * @namespace
+	 */
+	window.TabUtils = {
+		/** Gets whether messages can be posted to a tab
 		 * @param {BrowserTab} tab The tab to check
 		 * @returns true if the tab exists and messages can be sent to it
 		 */
@@ -17,28 +25,34 @@ window.addEventListener('load', function() {
 			return (!!tab && !!tab.port);
 		},
 		
-		/**
-		 * Gets whether an object is a BrowserTab
+		/** Gets whether an object is a BrowserTab
+		 * @param {object} item The object to test
+		 * @returns {boolean} true if the object is a BrowserTab, false otherwise
 		 */
 		isTab: function(item) {
 			//return item instanceof BrowserTab;
 			return item.hasOwnProperty('faviconUrl');
 		},
 		
-		/**
-		 * Gets whether an object is a BrowserTabGroup
+		/** Gets whether an object is a BrowserTabGroup
+		 * @param {object} item The object to test
+		 * @returns {boolean} true if the object is a BrowserTabGroup, false otherwise
 		 */
 		isGroup: function(item) {
 			//return item instanceof BrowserTabGroup;
 			return item.hasOwnProperty('collapsed');
 		},
 		
+
+		/** Gets whether an object is a BrowserWindow
+		 * @param {object} item The object to test
+		 * @returns {boolean} true if the object is a BrowserTab, false otherwise
+		 */
 		isWindow: function(item) {
 			return item instanceof BrowserWindow;
 		},
 		
-		/**
-		 * Gets the next tab or group within a tab or group's container
+		/** Gets the next tab or group within a tab or group's container
 		 * @param {BrowserTab|BrowserTabGroup} item
 		 * @returns {BrowserTab|BrowserTabGroup}
 		 */
@@ -48,8 +62,7 @@ window.addEventListener('load', function() {
 			return item.browserWindow.at(item.position + 1);
 		},
 		
-		/**
-		 * Gets the previous tab or group within a tab or group's container
+		/** Gets the previous tab or group within a tab or group's container
 		 * @param {BrowserTab|BrowserTabGroup} item
 		 * @returns {BrowserTab|BrowserTabGroup}
 		 */
@@ -59,8 +72,7 @@ window.addEventListener('load', function() {
 			return item.browserWindow.at(item.position - 1);
 		},
 		
-		/**
-		 * Gets the tab immediately to the right of a tab or group
+		/** Gets the tab immediately to the right of a tab or group
 		 * @param {BrowserTab|BrowserTabGroup} item
 		 * @returns {BrowserTab}
 		 */
@@ -77,8 +89,7 @@ window.addEventListener('load', function() {
 			return next;
 		},
 		
-		/**
-		 * Gets the tab immediately to the left of a tab or group
+		/** Gets the tab immediately to the left of a tab or group
 		 * @param {BrowserTab|BrowserTabGroup} item
 		 * @returns {BrowserTab}
 		 */
@@ -95,16 +106,14 @@ window.addEventListener('load', function() {
 			return prev;
 		},
 		
-		/**
-		 * Gets the first tab within a tab group
+		/** Gets the first tab within a tab group
 		 * @param {BrowserTabGroup} group
 		 */
 		firstTab: function(group) {
 			return group.at(0);
 		},
 		
-		/**
-		 * Gets the last tab within a tab group
+		/** Gets the last tab within a tab group
 		 * @param {BrowserTabGroup} group
 		 */
 		lastTab: function(group) {
@@ -113,13 +122,12 @@ window.addEventListener('load', function() {
 		}
 	}
 
-	
 
 	function initWindows() {
 		opera.extension.windows.getLastFocused();
+		var utils = window.TabUtils;
 		
-		/**
-		 * Moves a tab or tab group to a new position
+		/** Moves a tab or tab group to a new position
 		 * @param {number} from The position of the item to move
 		 * @param {number} to The new position to move the item to
 		 *	@returns {BrowserTab|BrowserTabGroup} The item which was moved, if any
@@ -138,8 +146,7 @@ window.addEventListener('load', function() {
 			return item;
 		}
 
-		/**
-		 * Gets the tab or tab group at a given position
+		/** Gets the tab or tab group at a given position
 		 * @param {number} position The position of the item to get
 		 * @returns {BrowserTab|BrowserTabGroup} The item at the given position, if any
 		 */
@@ -157,8 +164,7 @@ window.addEventListener('load', function() {
 			return null;
 		}
 		
-		/**
-		 * Inserts a tab or tab group into the group after another tab or tab group
+		/** Inserts a tab or tab group into the group after another tab or tab group
 		 * @param {BrowserTab|BrowserTabGroup} tab The tab or tab group to insert
 		 * @param {BrowserTab|BrowserTabGroup} child The tab or tab group after which the specified item should be inserted.
 		 *	                                    This tab or tab group is expected to be a child of the window.
@@ -172,9 +178,9 @@ window.addEventListener('load', function() {
 
 	function initGroups() {
 		ext.tabGroups.getAll();
+		var utils = window.TabUtils;
 		
-		/**
-		 * Moves a tab to a new position within the group
+		/** Moves a tab to a new position within the group
 		 * @param {number} from The position of the tab to move
 		 * @param {number} to The new position to move the tab to
 		 *	@returns {BrowserTab} The tab which was moved, if any
@@ -188,14 +194,12 @@ window.addEventListener('load', function() {
 			var item = (typeof from === 'number') ? this.at(from) : from;			
 			var before = (typeof position === 'number') ? this.at(to + 1) : to;
 			
-			console.log(item, before);
 			if (!!item)
 				this.insert(item, before);
 			return item;
 		}
 
-		/**
-		 * Gets the tab at a given position within the group
+		/** Gets the tab at a given position within the group
 		 * @param {number} position The position of the tab to get
 		 * @returns {BrowserTab} The tab at the given position, if any
 		 */
@@ -208,8 +212,7 @@ window.addEventListener('load', function() {
 			return null;
 		}
 		
-		/**
-		 * Inserts a tab into the group after another tab
+		/** Inserts a tab into the group after another tab
 		 * @param {BrowserTab} tab The tab to insert
 		 * @param {BrowserTab} child The tab after which the specified tab should be inserted.
 		 *	                    This tab is expected to be a child of the group.
@@ -218,29 +221,33 @@ window.addEventListener('load', function() {
 			this.insert(tab, child.nextSibling);
 		}
 		
-		/**
-		 * Gets the next tab or group within the tab's container
+		/** Gets the next tab or group within the window
+		 * @name BrowserTabGroup#nextSibling
+		 * @type BrowserTab|BrowserTabGroup
 		 */
 		Object.defineProperty(BrowserTabGroup.prototype, 'nextSibling', {
 			get: function() { return utils.nextSibling(this); }
 		});
 		
-		/**
-		 * Gets the previous tab or group within the tab's container
+		/** Gets the previous tab or group within the window
+		 * @name BrowserTabGroup#previousSibling
+		 * @type BrowserTab|BrowserTabGroup
 		 */
 		Object.defineProperty(BrowserTabGroup.prototype, 'previousSibling', {
 			get: function() { return utils.previousSibling(this); }
 		});
 		
-		/**
-		 * Gets the leftmost tab in the group
+		/** Gets the leftmost tab in the group
+		 * @name BrowserTabGroup#firstTab
+		 * @type BrowserTab
 		 */
 		Object.defineProperty(BrowserTabGroup.prototype, 'firstTab', {
 			get: function() { return utils.firstTab(this); }
 		});
 		
-		/**
-		 * Gets the rightmost tab in the group
+		/** Gets the rightmost tab in the group
+		 * @name BrowserTabGroup#lastTab
+		 * @type BrowserTab
 		 */
 		Object.defineProperty(BrowserTabGroup.prototype, 'lastTab', {
 			get: function() { return utils.lastTab(this); }
@@ -251,9 +258,9 @@ window.addEventListener('load', function() {
 	
 	function initTabs() {
 		ext.tabs.getAll();
+		var utils = window.TabUtils;
 		
-		/**
-		 * Removes the tab from its current tab group and places it after the group.
+		/** Removes the tab from its current tab group and places it after the group.
 		 * Does nothing if the tab is not in a group
 		 * @param {boolean} [before] If true, the tab will be placed before the group instead of after it.
 		 */
@@ -267,29 +274,33 @@ window.addEventListener('load', function() {
 				
 		}
 		
-		/**
-		 * Gets the next tab or group within the tab's container
+		/** Gets the next tab or group within the tab's container
+		 * @name BrowserTab#nextSibling
+		 * @type BrowserTab|BrowserTabGroup
 		 */
 		Object.defineProperty(BrowserTab.prototype, 'nextSibling', {
 			get: function() { return utils.nextSibling(this); }
 		});
 		
-		/**
-		 * Gets the previous tab or group within the tab's container
+		/** Gets the previous tab or group within the tab's container
+		 * @name BrowserTab#previousSibling
+		 * @type BrowserTab|BrowserTabGroup
 		 */
 		Object.defineProperty(BrowserTab.prototype, 'previousSibling', {
 			get: function() { return utils.previousSibling(this); }
 		});
 		
-		/**
-		 * Gets the tab directly after this one in the tab bar
+		/** Gets the tab directly after this one in the tab bar
+		 * @name BrowserTab#nextTab
+		 * @type BrowserTab
 		 */
 		Object.defineProperty(BrowserTab.prototype, 'nextTab', {
 			get: function() { return utils.nextTab(this); }
 		});
 		
-		/**
-		 * Gets the tab directly before this one in the tab bar
+		/** Gets the tab directly before this one in the tab bar
+		 * @name BrowserTab#previousTab
+		 * @type BrowserTab
 		 */
 		Object.defineProperty(BrowserTab.prototype, 'previousTab', {
 			get: function() {return utils.previousTab(this);}
@@ -324,4 +335,13 @@ window.addEventListener('load', function() {
 }, false);
 
 
-
+// Make these classes visible to JSDoc
+/**
+ * @class BrowserTab
+ */
+/**
+ * @class BrowserTabGroup
+ */
+/**
+ * @class BrowserWindow
+ */
