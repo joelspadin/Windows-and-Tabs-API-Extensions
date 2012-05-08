@@ -5,7 +5,7 @@ It adds a global **TabUtils** object and extends Opera's **BrowserTab**,
 **BrowserTabGroup** and **BrowserWindow** objects with new methods and properties.
 
 Just add js/api-extensions.js to your project and include it in your 
-extension's index.html with a <script> tag like so:
+extension's index.html with a script tag like so:
 
 	<script src="js/api-extensions.js"></script>
 
