@@ -94,7 +94,7 @@ Gets the previous tab or group within the window
 Gets the tab at a given position in the group
 
 	insertAfter(tab, child)
-Just like *BrowserTabGroup.insert(tab, child)*, but inserts the tab to the
+Just like `BrowserTabGroup.insert(tab, child)`, but inserts the tab to the
 right of the child tab instead of before it.
 
 	move(tab, to)
@@ -112,7 +112,7 @@ If the position does not exist, the tab will be placed at the end of the group.
 Gets the tab or group at a given position in the window
 
 	insertAfter(tab, child)
-Just like *BrowserWindow.insert(tab, child)*, but inserts the tab or group to 
+Just like `BrowserWindow.insert(tab, child)`, but inserts the tab or group to 
 the right of the child item instead of before it.
 
 	move(item, to)
