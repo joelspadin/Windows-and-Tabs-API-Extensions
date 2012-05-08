@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" 
+        version="1.0" 
+		  id="extensions:api-extensions">
+	<name>Windows and Tabs API Extensions</name>
+	<description xml:lang="en">
+		Utility methods for the new Opera 12.00 Windows and Tabs API for extensions
+	</description>
+	<author href="http://chaosinacan.com/">Joel Spadin</author>
+	<access origin="*" />
+</widget>
