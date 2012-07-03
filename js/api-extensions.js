@@ -221,6 +221,26 @@ window.addEventListener('load', function() {
 			this.insert(tab, child.nextSibling);
 		}
 		
+		/** Dissolves the group by ungrouping all of its tabs
+		 */
+		BrowserTabGroup.prototype.ungroup = function() {
+			var tabs = this.tabs.getAll();
+			for (var i = 0; i < tabs.length; i++)
+				tabs[i].ungroup(true);
+		}
+		
+		/** Expands the tab group
+		 */
+		BrowserTabGroup.prototype.expand = function() {
+			this.update({ collapsed: false });
+		}
+		
+		/** Collapses the tab group
+		 */
+		BrowserTabGroup.prototype.collapse = function() {
+			this.update({ collapsed: true });
+		}
+		
 		/** Gets the next tab or group within the window
 		 * @name BrowserTabGroup#nextSibling
 		 * @type BrowserTab|BrowserTabGroup
@@ -309,14 +329,19 @@ window.addEventListener('load', function() {
 		ext.tabs.removeEventListener('create', initTabs, false);
 	}
 
-	// Fix for bug where Opera doesn't properly ungroup tabs before creating a 
-	// new group, and stuff breaks and Opera eventually crashes.
-	BrowserTabGroupManager.prototype._create = BrowserTabGroupManager.prototype.create;
-	BrowserTabGroupManager.prototype.create = function(tabs, properties, before) {
-		for (var i = 0; i < tabs.length; i++)
-			tabs[i].ungroup(true);
+	// Fix for focus issue when creating tabs in the background
+	// Create the tab focused, then immediately refocus the current tab
+	BrowserTabManager.prototype._create = BrowserTabManager.prototype.create;
+	BrowserTabManager.prototype.create = function(properties, before) {
+		if (properties.focused)
+			return this._create(properties, before);
 		
-		return this._create(tabs, properties, before);
+		var currentTab = ext.tabs.getSelected();
+		properties.focused = true;
+		var retval = this.create(properties, before);
+		if (currentTab)
+			currentTab.focus();
+		return retval;
 	}
 
 	// BrowserWindow, BrowserTabGroup and BrowserTab don't show up in window until

@@ -13,9 +13,9 @@ More in-depth documentation can be found in the **jsdoc** folder.
 
 ## Bug-Fixes
 
-* **Opera 12.00 beta (build 1387)**: BrowserTabGroupManager.create() fails to 
-properly ungroup tabs that are already part of a group when adding them to the
-newly created group. The method is fixed to ungroup all tabs first.
+* **Opera 12.00**: BrowserTabManager.create() causes the addressbar to be 
+focused when opening a tab in the background. The workaround is to create the
+tab in the foreground, but immediately refocus the originally focused tab.
 
 ## TabUtils
 
@@ -104,6 +104,15 @@ If the position does not exist, the tab will be placed at the end of the group.
 	move(from, to)
 Moves the tab at position **from** to a new position within the group.
 If the position does not exist, the tab will be placed at the end of the group.
+
+	ungroup()
+Dissolves the tab group
+
+	expand()
+Shortcut for `tabGroup.update({ collapsed: false })`
+
+	collapse()
+Shortcut for `tabGroup.update({ collapsed: true })`
 
 ## BrowserWindow
 
