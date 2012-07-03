@@ -14,8 +14,10 @@ More in-depth documentation can be found in the **jsdoc** folder.
 ## Bug-Fixes
 
 * **Opera 12.00**: BrowserTabManager.create() causes the addressbar to be 
-focused when opening a tab in the background. The workaround is to create the
-tab in the foreground, but immediately refocus the originally focused tab.
+focused when opening a tab in the background. The method is now rewritten to
+open tabs in the foreground, then immediately return focus to the original tab
+so that it opens in the background without switching keyboard focus to the 
+address bar.
 
 ## TabUtils
 
